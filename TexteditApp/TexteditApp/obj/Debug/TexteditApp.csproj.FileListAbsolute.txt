@@ -1,0 +1,15 @@
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\bin\Debug\TexteditApp.exe.config
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\bin\Debug\TexteditApp.exe
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\bin\Debug\TexteditApp.pdb
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.csproj.AssemblyReference.cache
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\MainWindow.baml
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\MainWindow.g.cs
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\App.g.cs
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp_MarkupCompile.cache
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.g.resources
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.Properties.Resources.resources
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.csproj.GenerateResource.cache
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.csproj.CoreCompileInputs.cache
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.exe
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.pdb
+C:\EDU\UML\SSRPO\TexteditApp\TexteditApp\obj\Debug\TexteditApp.exe.config
