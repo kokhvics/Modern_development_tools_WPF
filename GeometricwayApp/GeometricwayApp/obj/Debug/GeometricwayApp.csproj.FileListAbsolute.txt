@@ -1,0 +1,14 @@
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\bin\Debug\GeometricwayApp.exe.config
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\bin\Debug\GeometricwayApp.exe
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\bin\Debug\GeometricwayApp.pdb
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp.csproj.AssemblyReference.cache
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\MainWindow.baml
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\MainWindow.g.cs
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\App.g.cs
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp_MarkupCompile.cache
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp.g.resources
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp.Properties.Resources.resources
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp.csproj.GenerateResource.cache
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp.csproj.CoreCompileInputs.cache
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp.exe
+C:\EDU\UML\SSRPO\GeometricwayApp\GeometricwayApp\obj\Debug\GeometricwayApp.pdb

@@ -1,0 +1,204 @@
+﻿<Window x:Class="GeometricwayApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Карусель товаров" Height="600" Width="800">
+    <Window.Resources>
+        <!-- Геометрический путь — трапеция, начинающаяся в (0,300), поднята вверх -->
+        <PathGeometry x:Key="CarouselPath">
+            <PathFigure StartPoint="0,300" IsClosed="True">
+                <LineSegment Point="100,100"/>
+                <LineSegment Point="400,100"/>
+                <LineSegment Point="500,300"/>
+                <LineSegment Point="400,500"/>
+                <LineSegment Point="100,500"/>
+                <LineSegment Point="0,300"/>
+            </PathFigure>
+        </PathGeometry>
+
+        <!-- Базовый стиль -->
+        <Style x:Key="ItemStyle" TargetType="Viewbox">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Canvas.Left" Value="0"/>
+            <Setter Property="Canvas.Top" Value="300"/>
+            <!-- старт в (0,300) -->
+            <Setter Property="Opacity" Value="0.3"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Canvas Background="White">
+        <!-- Элемент 1 -->
+        <Viewbox Style="{StaticResource ItemStyle}" Canvas.Top="-1000">
+            <Viewbox.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)"
+                                                      Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="X"/>
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)"
+                                                      Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="Y"/>
+                            <!-- ✅ Зацикливаем анимации масштаба и прозрачности -->
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleX)"
+                                                           Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleY)"
+                                                           Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Viewbox.Triggers>
+            <Image Source="Img/1.jpg"/>
+        </Viewbox>
+
+        <!-- Элемент 2 (BeginTime = 2s) -->
+        <Viewbox Style="{StaticResource ItemStyle}" Canvas.Top="-1000">
+            <Viewbox.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:2" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)"
+                                                      Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="X"/>
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)"
+                                                      Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="Y"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleX)"
+                                                           Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleY)"
+                                                           Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Viewbox.Triggers>
+            <Image Source="Img/2.jpg"/>
+        </Viewbox>
+
+        <!-- Элемент 3 (BeginTime = 4s) -->
+        <Viewbox Style="{StaticResource ItemStyle}" Canvas.Top="-1000">
+            <Viewbox.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:4" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)" Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="X"/>
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)" Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="Y"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleX)" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleY)" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Viewbox.Triggers>
+            <Image Source="Img/3.jpg"/>
+        </Viewbox>
+
+        <!-- Элемент 4 (BeginTime = 6s) -->
+        <Viewbox Style="{StaticResource ItemStyle}" Canvas.Top="-1000">
+            <Viewbox.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:6" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)" Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="X"/>
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)" Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="Y"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleX)" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleY)" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Viewbox.Triggers>
+            <Image Source="Img/4.jpg"/>
+        </Viewbox>
+
+        <!-- Элемент 5 (BeginTime = 8s) -->
+        <Viewbox Style="{StaticResource ItemStyle}" Canvas.Top="-1000">
+            <Viewbox.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard BeginTime="0:0:8" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)" Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="X"/>
+                            <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)" Duration="0:0:10"
+                                                      PathGeometry="{StaticResource CarouselPath}" Source="Y"/>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.3" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleX)" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Viewbox.RenderTransform).(ScaleTransform.ScaleY)" Duration="0:0:10" RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:0"/>
+                                <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:5"/>
+                                <LinearDoubleKeyFrame Value="0.5" KeyTime="0:0:10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Viewbox.Triggers>
+            <Image Source="Img/5.jpg"/>
+        </Viewbox>
+    </Canvas>
+</Window>
