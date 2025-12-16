@@ -1,0 +1,244 @@
+﻿<Window x:Class="RoadsignApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Дорожные знаки" Height="700" Width="1200">
+    <Grid>
+        <!-- Определяем три колонки -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая колонка: Знаки с использованием Path -->
+        <StackPanel Grid.Column="0" Name="LeftPanel" Margin="20">
+            <!-- Знак 1 (новый) -->
+            <Border Name="PathSign1Container" Width="130" Height="130" Margin="10" Background="Transparent" HorizontalAlignment="Left">
+                <Viewbox Stretch="Uniform">
+                    <Grid Width="700" Height="700">
+                        <!-- Размеры исходного SVG -->
+                        <!-- Синий круг -->
+                        <Path Data="M 329.988 0 C 147.756 0 0 147.756 0 330.024 c 0 182.232 147.756 329.988 329.988 329.988 c 182.268 0 330.024 -147.756 330.024 -329.988 C 660.012 147.756 512.256 0 329.988 0 z m 101.764 202.713 c 25.2283 0.88582 45.3898 13.2874 60.5197 37.2047 c 15.1299 23.9173 22.8898 53.9291 23.2795 90.1063 c -0.38976 37.8779 -8.1496 68.4213 -23.2795 91.5945 c -15.1299 23.1378 -35.2913 35.0433 -60.5197 35.7165 c -25.2283 -0.67323 -45.4252 -12.5787 -60.5551 -35.7165 c -15.1299 -23.1732 -22.8898 -53.7165 -23.2795 -91.5945 c 0.38976 -37.9134 8.14961 -68.4567 23.2795 -91.5945 c 15.1299 -23.1732 35.3268 -35.0787 60.5551 -35.7165 z m -271.098 3.11811 l 142.831 0 l -12.437 40.3228 l -90.0354 0 l 0 59.0315 c 4.85433 -6.09449 10.9842 -10.2401 18.3543 -12.437 c 7.37008 -2.19685 14.7047 -3.2244 22.0039 -3.11811 c 18.0354 0.14174 34.7244 6.87402 50.0669 20.1969 c 15.3425 13.3228 23.4567 32.4567 24.4488 57.437 c -0.3189 25.4764 -9 46.7008 -26.0079 63.6378 c -17.0079 16.9724 -40.4291 25.7599 -70.2638 26.4331 c -14.6693 -0.5315 -27.9921 -2.62205 -39.9685 -6.23622 c -11.941 -3.61418 -18.2835 -5.70473 -18.9921 -6.20079 l -6.20079 -40.3583 c 7.75985 4.99606 16.937 8.32677 27.4961 10.0276 c 10.5236 1.70079 21.0472 2.51575 31.5 2.37401 c 13.1811 0 25.5827 -3.89763 37.2402 -11.6575 c 11.6575 -7.75984 17.8583 -19.3819 18.6378 -34.9016 c -0.0709 -11.4449 -3.82677 -21.9331 -11.2677 -31.4291 c -7.44095 -9.49606 -18.1772 -14.563 -32.2087 -15.1654 c -9.31889 0.60236 -17.0787 3.29527 -23.2795 8.1496 c -6.20079 4.85433 -10.878 8.36221 -13.9606 10.4882 l -27.9567 -15.5197 l 0 -121.075 z m 271.098 35.4685 c -12.1535 -0.17716 -21.8976 6.83859 -29.1969 21.0472 c -7.26378 14.2441 -10.9843 36.815 -11.1968 67.6772 c 0.21259 30.8622 3.93307 53.3976 11.1968 67.6417 c 7.29921 14.2441 17.0433 21.2599 29.1969 21.0827 c 12.1535 0.17717 21.8622 -6.83858 29.1614 -21.0827 c 7.26378 -14.2441 10.9842 -36.7795 11.1968 -67.6417 c -0.2126 -30.8622 -3.93307 -53.4331 -11.1968 -67.6772 c -7.29922 -14.2087 -17.0079 -21.2244 -29.1614 -21.0472 z"
+                              Fill="#0d69e1"/>
+                        <!-- Белая полоса -->
+                        <Path Data="m -65.6136 432.26 c 0 16.2733 -9.89766 29.4654 -22.107 29.4654 c -12.2094 0 -22.107 -13.1921 -22.107 -29.4654 c 0 -16.2733 9.89766 -29.4654 22.107 -29.4654 c 12.2094 0 22.107 13.1921 22.107 29.4654 z"
+                              Fill="White" Stretch="Uniform" RenderTransformOrigin="0.5, 0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="15.8321" ScaleY="11.8783"/>
+                                    <TranslateTransform X="1738.8" Y="-4432.17"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                        <!-- Красный диагональный треугольник -->
+                        <Path Data="M 559.938 95.375 L 95.375 559.938 C 108.809 576.211 123.789 591.191 140.062 604.625 L 604.625 140.062 C 591.191 123.789 576.211 108.809 559.938 95.375 z"
+                              Fill="Red"/>
+                    </Grid>
+                </Viewbox>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="LightBlue" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="Transparent" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+
+            <!-- Знак 2 (остаётся как есть) -->
+            <Border Name="PathSign2Container" Width="130" Height="130" Margin="10" Background="Transparent" HorizontalAlignment="Left">
+                <Viewbox Stretch="Uniform">
+                    <Grid Width="700" Height="700">
+                        <!-- Размеры исходного SVG -->
+                        <Path Data="M 205.025 352.362 L 0 557.387 l 0 289.949 l 205.025 205.025 l 289.949 0 L 700 847.337 L 700 557.388 L 494.975 352.362 z"
+                              Fill="White"/>
+                        <Path Data="M 1 494.561 L 1 205.44 L 205.439 1 l 289.121 0 L 699 205.44 L 699 494.561 L 494.561 699 L 205.44 699 z"
+                              Stroke="Black" StrokeThickness="2" Fill="Transparent"/>
+                        <Path Data="M 213.312 20 L 20 213.312 L 20 486.688 L 213.312 680 L 486.688 680 L 680 486.688 L 680 213.312 L 486.688 20 L 213.312 20 z M 125.969 246.875 C 141.047 248.001 154.05 252.497 164.969 260.375 C 175.888 268.254 181.605 272.75 182.125 273.875 L 163.406 298.438 C 163.406 297.619 160.302 294.324 154.062 288.594 C 147.823 282.864 138.447 279.6 125.969 278.781 C 113.75 279.395 105.451 283.091 101.031 289.844 C 96.6116 296.597 94.5212 302.725 94.7812 308.25 C 95.1711 316.545 99.582 322.491 108.031 326.094 C 116.48 329.697 126.64 332.775 138.469 335.281 C 153.201 339.016 164.789 345.652 173.281 355.219 C 181.774 364.786 186.108 376.965 186.281 391.75 C 186.194 405.051 180.662 418.355 169.656 431.656 C 158.651 444.958 142.697 452.102 121.812 453.125 C 109.22 452.701 98.0161 449.736 88.2188 444.219 C 78.4213 438.701 70.7315 433.174 65.0938 427.656 C 59.4559 422.139 56.5512 419.174 56.4375 418.75 L 76.9375 398.75 C 76.987 399.686 80.8428 403.452 88.4688 410 C 96.0946 416.548 107.204 420.283 121.812 421.219 C 135.028 420.554 143.957 416.966 148.594 410.469 C 153.23 403.972 155.397 398.536 155.094 394.188 C 155.407 391.63 155.265 388.427 154.688 384.531 C 154.11 380.636 151.201 376.669 145.969 372.656 C 140.736 368.644 131.307 365.19 117.656 362.281 C 94.5618 356.807 79.9148 348.724 73.7188 338.031 C 67.5227 327.339 64.833 317.408 65.6562 308.25 C 65.9595 290.651 71.6002 276.116 82.5625 264.656 C 93.5247 253.197 107.987 247.284 125.969 246.875 z M 417.75 246.875 C 443.615 247.621 462.872 257.699 475.531 277.125 C 488.19 296.551 494.479 320.839 494.438 350 C 494.479 379.161 488.19 403.449 475.531 422.875 C 462.872 442.301 443.615 452.38 417.75 453.125 C 391.885 452.38 372.628 442.301 359.969 422.875 C 347.31 403.449 340.989 379.161 341.031 350 C 340.989 320.839 347.31 296.551 359.969 277.125 C 372.628 257.699 391.885 247.621 417.75 246.875 z M 201.156 251.781 L 332.031 251.781 L 332.031 281.25 L 282.375 281.25 L 282.375 448.219 L 250.812 448.219 L 250.812 281.25 L 201.156 281.25 L 201.156 251.781 z M 519.344 251.781 L 585.656 251.781 C 609.906 252.907 627.089 260.483 637.219 274.5 C 647.348 288.518 652.276 302.221 651.969 315.625 C 651.662 329.029 645.502 342.732 633.531 356.75 C 621.56 370.768 605.608 378.343 585.656 379.469 L 553.719 379.469 L 553.719 448.219 L 519.344 448.219 L 519.344 251.781 z M 417.75 278.781 C 404.551 278.986 393.85 285.33 385.656 297.812 C 377.462 310.296 373.245 327.695 373 350 C 373.245 372.306 377.462 389.705 385.656 402.188 C 393.85 414.67 404.551 421.014 417.75 421.219 C 430.949 421.014 441.65 414.67 449.844 402.188 C 458.038 389.705 462.255 372.306 462.5 350 C 462.255 327.695 458.038 310.296 449.844 297.812 C 441.65 285.33 430.949 278.986 417.75 278.781 z M 553.719 281.25 L 553.719 350 L 575.844 350 C 586.076 350.102 595.067 347.454 602.844 342.031 C 610.62 336.608 614.716 327.801 615.125 315.625 C 614.716 303.449 610.62 294.642 602.844 289.219 C 595.067 283.796 586.076 281.148 575.844 281.25 L 553.719 281.25 z"
+                              Fill="Red"/>
+                    </Grid>
+                </Viewbox>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="LightGreen" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="Transparent" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+
+            <!-- Знак 3 (остаётся как есть, но с анимацией цвета у Path через DataTrigger на IsMouseOver у Path) -->
+            <Border Name="PathSign3Container" Width="130" Height="130" Margin="10" Background="Transparent" HorizontalAlignment="Left">
+                <Viewbox Stretch="Uniform">
+                    <Grid Width="700" Height="700">
+                        <!-- Размеры исходного SVG -->
+                        <!-- Красный круг -->
+                        <Path x:Name="PathSign3RedPart" Data="m 350 690 c 187.777 0 340 -152.223 340 -340 c 0 -187.777 -152.223 -340 -340 -340 c -187.777 0 -340 152.223 -340 340 c 0 187.777 152.223 340 340 340 z m 181.44 -126.74 c -50.638 43.083 -114.954 66.74 -181.44 66.74 c -66.486 0 -130.802 -23.658 -181.44 -66.74 l 181.44 -181.44 z m -394.7 -31.82 c -43.083 -50.638 -66.74 -114.954 -66.74 -181.44 c 0 -66.486 23.658 -130.802 66.74 -181.44 l 181.44 181.44 z m 31.82 -394.7 c 50.638 -43.083 114.954 -66.74 181.44 -66.74 c 66.486 0 130.802 23.658 181.44 66.74 l -181.44 181.44 z m 394.7 31.82 c 43.083 50.638 66.74 114.954 66.74 181.44 c 0 66.486 -23.658 130.802 -66.74 181.44 l -181.44 -181.44 z"
+                              Fill="Red">
+                            <Path.Style>
+                                <Style TargetType="Path">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=IsMouseOver}" Value="True">
+                                            <DataTrigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetProperty="Fill.Color"
+                                                                        To="Green" Duration="0:0:0.5"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </DataTrigger.EnterActions>
+                                            <DataTrigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetProperty="Fill.Color"
+                                                                        To="Red" Duration="0:0:0.5"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </DataTrigger.ExitActions>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                        <!-- Синие лучи -->
+                        <Path Data="m 137.488 183.45 c -37.247 47.526 -57.488 106.167 -57.488 166.55 c 0 60.383 20.241 119.023 57.488 166.55 l 166.55 -166.55 z"
+                              Fill="Blue"/>
+                        <Path Data="m 183.45 562.512 c 47.526 37.247 106.167 57.488 166.55 57.488 c 60.383 0 119.023 -20.241 166.55 -57.488 l -166.55 -166.55 z"
+                              Fill="Blue"/>
+                        <Path Data="m 562.512 516.55 c 37.247 -47.526 57.488 -106.167 57.488 -166.55 c 0 -60.383 -20.241 -119.023 -57.488 -166.55 l -166.55 166.55 z"
+                              Fill="Blue"/>
+                        <Path Data="m 516.55 137.488 c -47.526 -37.247 -106.167 -57.488 -166.55 -57.488 c -60.383 0 -119.023 20.241 -166.55 57.488 l 166.55 166.55 z"
+                              Fill="Blue"/>
+                    </Grid>
+                </Viewbox>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="LightPink"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+        </StackPanel>
+
+        <!-- Центральная колонка: Знаки как PNG-изображения -->
+        <StackPanel Grid.Column="1" Name="RightPanel" Margin="20">
+            <!-- Знак 1 -->
+            <Border Name="ImgSign1Container" Width="130" Height="130" Margin="10" Background="Transparent" HorizontalAlignment="Left">
+                <Image x:Name="ImgSign1" Source="Images/RU_road_sign_1.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="LightBlue" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="Transparent" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+
+            <!-- Знак 2 -->
+            <Border Name="ImgSign2Container" Width="130" Height="130" Margin="10" Background="Transparent" HorizontalAlignment="Left">
+                <Image x:Name="ImgSign2" Source="Images/RU_road_sign_2.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="LightGreen" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="Transparent" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+
+            <!-- Знак 3 -->
+            <Border Name="ImgSign3Container" Width="130" Height="130" Margin="10" Background="Transparent" HorizontalAlignment="Left">
+                <Image x:Name="ImgSign3" Source="Images/RU_road_sign_3.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="LightPink" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                        To="Transparent" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+        </StackPanel>
+
+        <!-- Правая колонка: Область для увеличенного знака -->
+        <Border Grid.Column="2" Name="LargePreviewArea" Margin="20" Background="LightGray" CornerRadius="10">
+            <ContentControl  Name="LargePreviewContent" Background="White"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Window>
