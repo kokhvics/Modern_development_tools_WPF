@@ -1,0 +1,242 @@
+﻿<Window x:Class="ImagesApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Просмотр изображений" Height="600" Width="900"
+        Background="White">
+
+    <Window.Resources>
+
+        <!-- Стиль карточки с изображением -->
+        <Style x:Key="ImageCardStyle" TargetType="Border">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="220"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <!-- начальное размытие всего элемента -->
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <BlurEffect Radius="5"/>
+                </Setter.Value>
+            </Setter>
+
+            <!-- поведение при наведении -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!-- слегка увеличиваем карточку -->
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!-- убираем размытие, добавляем тень -->
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="Black"
+                                              BlurRadius="20"
+                                              ShadowDepth="5"
+                                              Opacity="0.7"/>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!-- чтобы карточка была выше остальных -->
+                    <Setter Property="Panel.ZIndex" Value="99"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="ImagesPanel"
+                       HorizontalAlignment="Center"
+                       Margin="20">
+
+                <!-- КАРТОЧКА 1 -->
+                <Border Style="{StaticResource ImageCardStyle}">
+                    <DockPanel>
+                        <Grid x:Name="ImageHost1"
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Width="180" Height="180"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="imgScale1" ScaleX="1" ScaleY="1"/>
+                                    <RotateTransform x:Name="imgRotate1" Angle="0"/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Image x:Name="img1" Stretch="UniformToFill"/>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,5,0,0">
+                            <Button Content="⟲" Width="40" Margin="5,0"
+                                    Click="RotateLeft_Click" Tag="1"/>
+                            <Button Content="⟳" Width="40" Margin="5,0"
+                                    Click="RotateRight_Click" Tag="1"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- КАРТОЧКА 2 -->
+                <Border Style="{StaticResource ImageCardStyle}">
+                    <DockPanel>
+                        <Grid x:Name="ImageHost2"
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Width="180" Height="180"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="imgScale2" ScaleX="1" ScaleY="1"/>
+                                    <RotateTransform x:Name="imgRotate2" Angle="0"/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Image x:Name="img2" Stretch="UniformToFill"/>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,5,0,0">
+                            <Button Content="⟲" Width="40" Margin="5,0"
+                                    Click="RotateLeft_Click" Tag="2"/>
+                            <Button Content="⟳" Width="40" Margin="5,0"
+                                    Click="RotateRight_Click" Tag="2"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- КАРТОЧКА 3 -->
+                <Border Style="{StaticResource ImageCardStyle}">
+                    <DockPanel>
+                        <Grid x:Name="ImageHost3"
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Width="180" Height="180"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="imgScale3" ScaleX="1" ScaleY="1"/>
+                                    <RotateTransform x:Name="imgRotate3" Angle="0"/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Image x:Name="img3" Stretch="UniformToFill"/>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,5,0,0">
+                            <Button Content="⟲" Width="40" Margin="5,0"
+                                    Click="RotateLeft_Click" Tag="3"/>
+                            <Button Content="⟳" Width="40" Margin="5,0"
+                                    Click="RotateRight_Click" Tag="3"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- КАРТОЧКА 4 -->
+                <Border Style="{StaticResource ImageCardStyle}">
+                    <DockPanel>
+                        <Grid x:Name="ImageHost4"
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Width="180" Height="180"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="imgScale4" ScaleX="1" ScaleY="1"/>
+                                    <RotateTransform x:Name="imgRotate4" Angle="0"/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Image x:Name="img4" Stretch="UniformToFill"/>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,5,0,0">
+                            <Button Content="⟲" Width="40" Margin="5,0"
+                                    Click="RotateLeft_Click" Tag="4"/>
+                            <Button Content="⟳" Width="40" Margin="5,0"
+                                    Click="RotateRight_Click" Tag="4"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- КАРТОЧКА 5 -->
+                <Border Style="{StaticResource ImageCardStyle}">
+                    <DockPanel>
+                        <Grid x:Name="ImageHost5"
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Width="180" Height="180"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="imgScale5" ScaleX="1" ScaleY="1"/>
+                                    <RotateTransform x:Name="imgRotate5" Angle="0"/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Image x:Name="img5" Stretch="UniformToFill"/>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,5,0,0">
+                            <Button Content="⟲" Width="40" Margin="5,0"
+                                    Click="RotateLeft_Click" Tag="5"/>
+                            <Button Content="⟳" Width="40" Margin="5,0"
+                                    Click="RotateRight_Click" Tag="5"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- КАРТОЧКА 6 -->
+                <Border Style="{StaticResource ImageCardStyle}">
+                    <DockPanel>
+                        <Grid x:Name="ImageHost6"
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Width="180" Height="180"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform x:Name="imgScale6" ScaleX="1" ScaleY="1"/>
+                                    <RotateTransform x:Name="imgRotate6" Angle="0"/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Image x:Name="img6" Stretch="UniformToFill"/>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,5,0,0">
+                            <Button Content="⟲" Width="40" Margin="5,0"
+                                    Click="RotateLeft_Click" Tag="6"/>
+                            <Button Content="⟳" Width="40" Margin="5,0"
+                                    Click="RotateRight_Click" Tag="6"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
